@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80C60AEF-33A8-435A-9F96-4AA2255935A4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QUANLYSACH_MVC</RootNamespace>
+    <AssemblyName>QUANLYSACH_MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <IISExpressSSLPort>44353</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Books.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categories.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\QuanLySachController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuanLyTaiKhoanController.cs" />
+    <Compile Include="Controllers\QuanLyTheLoaiController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
+    <Compile Include="DataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\BookModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\PublishingCompanyModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="psGetAccounts_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="psGetTableBooksByCid_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="psGetTableBooks_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="psGetTableCategories_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="psGetTop4BooksByCid_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PublishingCompany.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\SkyBrands_WebNC.sql" />
+    <Content Include="App_Data\StoreProcedures_SkyBrands.sql" />
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\admin_mvc.css" />
+    <Content Include="Content\advert.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\event.css" />
+    <Content Include="Content\grid.css" />
+    <Content Include="Content\list_details_of_books.css" />
+    <Content Include="Content\list_details_of_categories.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\pageable.css" />
+    <Content Include="Content\quote.css" />
+    <Content Include="Content\responsive_home.css" />
+    <Content Include="Content\shop.css" />
+    <Content Include="Content\skybooks.css" />
+    <Content Include="Content\skyradio.css" />
+    <Content Include="DataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="img\bg-product.png" />
+    <Content Include="img\bg_footer.png" />
+    <Content Include="img\bg_login.gif" />
+    <Content Include="img\booksdlshpdnsby.png" />
+    <Content Include="img\books\7ntlnnccy.png" />
+    <Content Include="img\books\anh.png" />
+    <Content Include="img\books\avehcvm.png" />
+    <Content Include="img\books\bccsttxtab.png" />
+    <Content Include="img\books\bhvt.png" />
+    <Content Include="img\books\bkcsml.png" />
+    <Content Include="img\books\bkttcmCOKO.png" />
+    <Content Include="img\books\bmdtkdtnt.png" />
+    <Content Include="img\books\bmncccdo.png" />
+    <Content Include="img\books\bmnksy.png" />
+    <Content Include="img\books\bntncv.png" />
+    <Content Include="img\books\brcm.png" />
+    <Content Include="img\books\bssml.png" />
+    <Content Include="img\books\btgtccpm.png" />
+    <Content Include="img\books\btkemmky.png" />
+    <Content Include="img\books\bts.png" />
+    <Content Include="img\books\cbcxclbg.png" />
+    <Content Include="img\books\cbgttttkdmcm.png" />
+    <Content Include="img\books\ccccttdd.png" />
+    <Content Include="img\books\cctkcntb.png" />
+    <Content Include="img\books\ccvqhrgt.png" />
+    <Content Include="img\books\cdhdtdclh.png" />
+    <Content Include="img\books\cdttgbd.png" />
+    <Content Include="img\books\cgcltd.png" />
+    <Content Include="img\books\cgtdyn_remake2022.png" />
+    <Content Include="img\books\cham.png" />
+    <Content Include="img\books\ckbgdcnl.png" />
+    <Content Include="img\books\ckbgdl.png" />
+    <Content Include="img\books\ckrcnvt.png" />
+    <Content Include="img\books\cmdh.png" />
+    <Content Include="img\books\cmlspccc.png" />
+    <Content Include="img\books\condrxt_remake2021.png" />
+    <Content Include="img\books\cslmebhp.png" />
+    <Content Include="img\books\cstlchdm.png" />
+    <Content Include="img\books\ctclcc.png" />
+    <Content Include="img\books\ctclctvc.png" />
+    <Content Include="img\books\cthpth.png" />
+    <Content Include="img\books\ctktlb.png" />
+    <Content Include="img\books\ctscvk.png" />
+    <Content Include="img\books\ctybbdbn.png" />
+    <Content Include="img\books\cvcm.png" />
+    <Content Include="img\books\cvndn.png" />
+    <Content Include="img\books\dccaccmnt.png" />
+    <Content Include="img\books\dcdkplt.png" />
+    <Content Include="img\books\dcdmkhc.png" />
+    <Content Include="img\books\dcdmkhndmd.png" />
+    <Content Include="img\books\dcysgmtc.png" />
+    <Content Include="img\books\ddckttnm.png" />
+    <Content Include="img\books\ddmk.png" />
+    <Content Include="img\books\ddssectd.png" />
+    <Content Include="img\books\ddvbHARVARDqdmt.png" />
+    <Content Include="img\books\deardarling.png" />
+    <Content Include="img\books\dhsscdltt.png" />
+    <Content Include="img\books\dldccn.png" />
+    <Content Include="img\books\dlshpdnsby.png" />
+    <Content Include="img\books\dlttddc.png" />
+    <Content Include="img\books\dmldhptt.png" />
+    <Content Include="img\books\dnclbntn.png" />
+    <Content Include="img\books\dnctlbt.png" />
+    <Content Include="img\books\dndt.png" />
+    <Content Include="img\books\dnhpbqm.png" />
+    <Content Include="img\books\dntngcy.png" />
+    <Content Include="img\books\dqcgh.png" />
+    <Content Include="img\books\dqcvhccbtt.png" />
+    <Content Include="img\books\dsdklnl.png" />
+    <Content Include="img\books\dsxktgn.png" />
+    <Content Include="img\books\dtbm.png" />
+    <Content Include="img\books\dtdkttd.png" />
+    <Content Include="img\books\dtxkcavmc.png" />
+    <Content Include="img\books\dvqtgvqmn.png" />
+    <Content Include="img\books\echop_truyenngan.png" />
+    <Content Include="img\books\em.png" />
+    <Content Include="img\books\GENZ.png" />
+    <Content Include="img\books\gmtccltl.png" />
+    <Content Include="img\books\gntgnacct.png" />
+    <Content Include="img\books\gtc.png" />
+    <Content Include="img\books\hnpstv.png" />
+    <Content Include="img\books\hntnrvla.png" />
+    <Content Include="img\books\hthlm.png" />
+    <Content Include="img\books\htkttlkc.png" />
+    <Content Include="img\books\htlrty.png" />
+    <Content Include="img\books\httnlcmcg.png" />
+    <Content Include="img\books\hya.png" />
+    <Content Include="img\books\kcdlslc.png" />
+    <Content Include="img\books\kdsrdld.png" />
+    <Content Include="img\books\kltg.png" />
+    <Content Include="img\books\kmlvy.png" />
+    <Content Include="img\books\kpsncdlc.png" />
+    <Content Include="img\books\ksddbtlcas.png" />
+    <Content Include="img\books\ktltgkcnl.png" />
+    <Content Include="img\books\lcnccdk.png" />
+    <Content Include="img\books\lgktgkcbpd.png" />
+    <Content Include="img\books\lleo.png" />
+    <Content Include="img\books\lltnrn.png" />
+    <Content Include="img\books\lpnkktn.png" />
+    <Content Include="img\books\lttgmmtvt.png" />
+    <Content Include="img\books\mclnbt.png" />
+    <Content Include="img\books\mcoqb.png" />
+    <Content Include="img\books\mcsbc.png" />
+    <Content Include="img\books\mddgdsql.png" />
+    <Content Include="img\books\mkthsnnn.png" />
+    <Content Include="img\books\mlcvcmlb.png" />
+    <Content Include="img\books\mm.png" />
+    <Content Include="img\books\mnctc48g.png" />
+    <Content Include="img\books\mndtttvnd.png" />
+    <Content Include="img\books\mngbdq.png" />
+    <Content Include="img\books\mngcmco.png" />
+    <Content Include="img\books\mttsl.png" />
+    <Content Include="img\books\mvhndtn.png" />
+    <Content Include="img\books\nbtgSAGA.png" />
+    <Content Include="img\books\ncbytdcblt.png" />
+    <Content Include="img\books\ncttythhbk.png" />
+    <Content Include="img\books\ndcddddl.png" />
+    <Content Include="img\books\ndhpclcd.png" />
+    <Content Include="img\books\ndtkco.png" />
+    <Content Include="img\books\nebdl.png" />
+    <Content Include="img\books\ngbbvmds.png" />
+    <Content Include="img\books\nglbntllbl.png" />
+    <Content Include="img\books\nkku.png" />
+    <Content Include="img\books\nlddxd.png" />
+    <Content Include="img\books\nmbtnntd.png" />
+    <Content Include="img\books\nmhnqoc.png" />
+    <Content Include="img\books\nnbocdil.png" />
+    <Content Include="img\books\nncmqhln.png" />
+    <Content Include="img\books\ntgcvtt.png" />
+    <Content Include="img\books\nttasgst.png" />
+    <Content Include="img\books\nvshcgv.png" />
+    <Content Include="img\books\pknc.png" />
+    <Content Include="img\books\plvcd_remake2020.png" />
+    <Content Include="img\books\psct.png" />
+    <Content Include="img\books\qckn.png" />
+    <Content Include="img\books\rvsmclctv.png" />
+    <Content Include="img\books\sbltcmqc.png" />
+    <Content Include="img\books\shmcnhn.png" />
+    <Content Include="img\books\smttgmh.png" />
+    <Content Include="img\books\tan.png" />
+    <Content Include="img\books\tbtcnnvt.png" />
+    <Content Include="img\books\tbyvhp_remake2022.png" />
+    <Content Include="img\books\tchntchp.png" />
+    <Content Include="img\books\tcncmnty.png" />
+    <Content Include="img\books\tdgdotdcr.png" />
+    <Content Include="img\books\tdh.png" />
+    <Content Include="img\books\tdnbkgtdctJACKMA.png" />
+    <Content Include="img\books\tdscdtvn.png" />
+    <Content Include="img\books\tdte_remake2021.png" />
+    <Content Include="img\books\tgctnb.png" />
+    <Content Include="img\books\thuong.png" />
+    <Content Include="img\books\tkmtbhntnm.png" />
+    <Content Include="img\books\tktoa.png" />
+    <Content Include="img\books\tlbmla.png" />
+    <Content Include="img\books\tlhhhntgttty.png" />
+    <Content Include="img\books\tlhtqqsccd.png" />
+    <Content Include="img\books\tlmtgma.png" />
+    <Content Include="img\books\tltndtt.png" />
+    <Content Include="img\books\tnddvde.png" />
+    <Content Include="img\books\tnmhlnhp.png" />
+    <Content Include="img\books\tnnarxnn.png" />
+    <Content Include="img\books\tpbndntpknvb.png" />
+    <Content Include="img\books\tpndNY.png" />
+    <Content Include="img\books\trmcddn.png" />
+    <Content Include="img\books\tshlccd.png" />
+    <Content Include="img\books\tsvvhbdbskt.png" />
+    <Content Include="img\books\tt.png" />
+    <Content Include="img\books\ttccvtcc.png" />
+    <Content Include="img\books\ttcttdtd.png" />
+    <Content Include="img\books\ttkcdsdc.png" />
+    <Content Include="img\books\ttmcstt.png" />
+    <Content Include="img\books\tttndnn.png" />
+    <Content Include="img\books\tttqc.png" />
+    <Content Include="img\books\ttvb.png" />
+    <Content Include="img\books\vdcsvd.png" />
+    <Content Include="img\books\vkcxdtgtctcb.png" />
+    <Content Include="img\books\vmbccdt.png" />
+    <Content Include="img\books\vnyk.png" />
+    <Content Include="img\books\vskthye.png" />
+    <Content Include="img\books\vvkqn_remake2021.png" />
+    <Content Include="img\books\yeldtvnadl.png" />
+    <Content Include="img\books\yen.png" />
+    <Content Include="img\books\ykdc.png" />
+    <Content Include="img\brand.png" />
+    <Content Include="img\brand_2.jpg" />
+    <Content Include="img\brand_3.png" />
+    <Content Include="img\company\nxb_dantri.png" />
+    <Content Include="img\company\nxb_giaoduc.png" />
+    <Content Include="img\company\nxb_hanoi.png" />
+    <Content Include="img\company\nxb_kimdong.png" />
+    <Content Include="img\company\nxb_phunu.png" />
+    <Content Include="img\company\nxb_thegioi.png" />
+    <Content Include="img\company\nxb_tre.png" />
+    <Content Include="img\Facebook-Icon.png" />
+    <Content Include="img\favicon.icon.png" />
+    <Content Include="img\home.png" />
+    <Content Include="img\hot.png" />
+    <Content Include="img\Instagram-Icon.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logo_footer.png" />
+    <Content Include="img\MOC_DIEP_TU.png" />
+    <Content Include="img\paybank.jpg" />
+    <Content Include="img\payzalo.jpg" />
+    <Content Include="img\pencil.png" />
+    <Content Include="img\phiasauco.png" />
+    <Content Include="img\quote.png" />
+    <Content Include="img\radio\5knccbdbvknm.jpg" />
+    <Content Include="img\radio\8pphttc.jpg" />
+    <Content Include="img\radio\cdttgbd.jpg" />
+    <Content Include="img\radio\cnkkcdstt.jpg" />
+    <Content Include="img\radio\dcdmkhc.jpg" />
+    <Content Include="img\radio\dcdmkhndmd.jpg" />
+    <Content Include="img\radio\ddckttnm.jpg" />
+    <Content Include="img\radio\ddldhntdb.jpg" />
+    <Content Include="img\radio\ddncklbt.jpg" />
+    <Content Include="img\radio\ddvtnrcl.jpg" />
+    <Content Include="img\radio\dhsscdltt.jpg" />
+    <Content Include="img\radio\dmldhptt.jpg" />
+    <Content Include="img\radio\dnhpbqm.jpg" />
+    <Content Include="img\radio\dtbm.jpg" />
+    <Content Include="img\radio\gtnmrxt.jpg" />
+    <Content Include="img\radio\gttxkndvktaocct.jpg" />
+    <Content Include="img\radio\hnpstv.jpg" />
+    <Content Include="img\radio\kcdlslc.jpg" />
+    <Content Include="img\radio\kntkcyb.jpg" />
+    <Content Include="img\radio\kpsncdlc.jpg" />
+    <Content Include="img\radio\lcnccdk.jpg" />
+    <Content Include="img\radio\ldmhctc.jpg" />
+    <Content Include="img\radio\mdqn.jpg" />
+    <Content Include="img\radio\ncct.jpg" />
+    <Content Include="img\radio\ndtkco.jpg" />
+    <Content Include="img\radio\nglbntllbl.jpg" />
+    <Content Include="img\radio\nmbtnntd.jpg" />
+    <Content Include="img\radio\nmcmbd.jpg" />
+    <Content Include="img\radio\nmdtnd.jpg" />
+    <Content Include="img\radio\ntddgdccg.jpg" />
+    <Content Include="img\radio\ntvtmvby.jpg" />
+    <Content Include="img\radio\qckn.jpg" />
+    <Content Include="img\radio\qmnlcctg.jpg" />
+    <Content Include="img\radio\smctgm.jpg" />
+    <Content Include="img\radio\tcncmnty.jpg" />
+    <Content Include="img\radio\tdmredcdc.jpg" />
+    <Content Include="img\radio\tghdcncd.jpg" />
+    <Content Include="img\radio\tlmtgma.jpg" />
+    <Content Include="img\radio\tnmhlnhp_1.jpg" />
+    <Content Include="img\radio\tnmhlnhp_2.jpg" />
+    <Content Include="img\radio\tsvvhbdbskt.jpg" />
+    <Content Include="img\radio\ttcttdtd.jpg" />
+    <Content Include="img\radio\tththprstdh.jpg" />
+    <Content Include="img\skybooks_radio_banner.png" />
+    <Content Include="img\skybooks_radio_logo.png" />
+    <Content Include="img\slide1.png" />
+    <Content Include="img\slide2.jpg" />
+    <Content Include="img\slide3.jpg" />
+    <Content Include="img\slider_1.png" />
+    <Content Include="img\slider_3.png" />
+    <Content Include="img\toidangsongcuocdoituyetvoinhat.png" />
+    <Content Include="img\top_block_heading.png" />
+    <Content Include="img\Twitter-Icon.png" />
+    <Content Include="img\xam.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="libman.json" />
+    <EntityDeploy Include="DataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataBaseModel.edmx.diagram">
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TrangChu\GioiThieu.cshtml" />
+    <Content Include="Views\TrangChu\SkyShop.cshtml" />
+    <Content Include="Views\TrangChu\SanPham.cshtml" />
+    <Content Include="Views\TrangChu\ChiTiet.cshtml" />
+    <Content Include="Views\QuanLySach\Create.cshtml" />
+    <Content Include="Views\QuanLySach\Delete.cshtml" />
+    <Content Include="Views\QuanLySach\Details.cshtml" />
+    <Content Include="Views\QuanLySach\Edit.cshtml" />
+    <Content Include="Views\QuanLySach\Index.cshtml" />
+    <Content Include="Views\TrangChu\DangKy.cshtml" />
+    <Content Include="Views\TrangChu\DangNhap.cshtml" />
+    <Content Include="Views\TrangChu\ThongTin.cshtml" />
+    <Content Include="Views\TrangChu\DangXuat.cshtml" />
+    <Content Include="Views\QuanLyTheLoai\Create.cshtml" />
+    <Content Include="Views\QuanLyTheLoai\Delete.cshtml" />
+    <Content Include="Views\QuanLyTheLoai\Details.cshtml" />
+    <Content Include="Views\QuanLyTheLoai\Edit.cshtml" />
+    <Content Include="Views\QuanLyTheLoai\Index.cshtml" />
+    <Content Include="Views\Admin\Home.cshtml" />
+    <Content Include="Views\QuanLyTaiKhoan\Create.cshtml" />
+    <Content Include="Views\QuanLyTaiKhoan\Delete.cshtml" />
+    <Content Include="Views\QuanLyTaiKhoan\Details.cshtml" />
+    <Content Include="Views\QuanLyTaiKhoan\Edit.cshtml" />
+    <Content Include="Views\QuanLyTaiKhoan\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Logout.cshtml" />
+    <Content Include="Views\GioHang\DanhSach.cshtml" />
+    <Content Include="Views\GioHang\ChiTiet.cshtml" />
+    <Content Include="Views\GioHang\PayBank.cshtml" />
+    <Content Include="Views\GioHang\PayZalo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\authors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51693</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44353/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

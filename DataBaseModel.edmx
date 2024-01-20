@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SkyBrands_WebNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phoneNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="bookId" />
+          </Key>
+          <Property Name="bookId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar(max)" />
+          <Property Name="bookImage" Type="varchar(max)" />
+          <Property Name="author" Type="nvarchar" MaxLength="200" />
+          <Property Name="price" Type="money" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="publishingYear" Type="int" />
+          <Property Name="language" Type="nvarchar" MaxLength="100" />
+          <Property Name="numberPage" Type="int" />
+          <Property Name="form" Type="nvarchar" MaxLength="50" />
+          <Property Name="weight" Type="int" />
+          <Property Name="bookDescribe" Type="nvarchar(max)" />
+          <Property Name="cid" Type="int" />
+          <Property Name="pcid" Type="int" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PublishingCompany">
+          <Key>
+            <PropertyRef Name="companyId" />
+          </Key>
+          <Property Name="companyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="200" />
+          <Property Name="companyImage" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK__Books__cid__2C3393D0">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__pcid__2D27B809">
+          <End Role="PublishingCompany" Type="Self.PublishingCompany" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublishingCompany">
+              <PropertyRef Name="companyId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="pcid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="psDeleteBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bookId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="psGetAccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="psGetAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="psGetTableBooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bookId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="psGetTableBooksByCid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psGetTableCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="categoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psGetTop4BooksByCid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psInsertAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="psInsertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bookId" Type="varchar" Mode="In" />
+          <Parameter Name="bookName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="bookImage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="author" Type="nvarchar" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+          <Parameter Name="quantity" Type="int" Mode="In" />
+          <Parameter Name="publishingYear" Type="int" Mode="In" />
+          <Parameter Name="language" Type="nvarchar" Mode="In" />
+          <Parameter Name="numberPage" Type="int" Mode="In" />
+          <Parameter Name="form" Type="nvarchar" Mode="In" />
+          <Parameter Name="weight" Type="int" Mode="In" />
+          <Parameter Name="bookDescribe" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="cid" Type="int" Mode="In" />
+          <Parameter Name="pcid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psUpdateBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bookId" Type="varchar" Mode="In" />
+          <Parameter Name="bookName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="bookImage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="author" Type="nvarchar" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+          <Parameter Name="quantity" Type="int" Mode="In" />
+          <Parameter Name="publishingYear" Type="int" Mode="In" />
+          <Parameter Name="language" Type="nvarchar" Mode="In" />
+          <Parameter Name="numberPage" Type="int" Mode="In" />
+          <Parameter Name="form" Type="nvarchar" Mode="In" />
+          <Parameter Name="weight" Type="int" Mode="In" />
+          <Parameter Name="bookDescribe" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="cid" Type="int" Mode="In" />
+          <Parameter Name="pcid" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SkyBrands_WebNCModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublishingCompany" EntityType="Self.PublishingCompany" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Books__cid__2C3393D0" Association="Self.FK__Books__cid__2C3393D0">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__pcid__2D27B809" Association="Self.FK__Books__pcid__2D27B809">
+            <End Role="PublishingCompany" EntitySet="PublishingCompany" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SkyBrands_WebNCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="bookId" />
+          </Key>
+          <Property Name="bookId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bookName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bookImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="author" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="publishingYear" Type="Int32" />
+          <Property Name="language" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="numberPage" Type="Int32" />
+          <Property Name="form" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="Int32" />
+          <Property Name="bookDescribe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="pcid" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__Books__cid__2C3393D0" FromRole="Books" ToRole="Categories" />
+          <NavigationProperty Name="PublishingCompany" Relationship="Self.FK__Books__pcid__2D27B809" FromRole="Books" ToRole="PublishingCompany" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__cid__2C3393D0" FromRole="Categories" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="PublishingCompany">
+          <Key>
+            <PropertyRef Name="companyId" />
+          </Key>
+          <Property Name="companyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="companyImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__pcid__2D27B809" FromRole="PublishingCompany" ToRole="Books" />
+        </EntityType>
+        <Association Name="FK__Books__cid__2C3393D0">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__pcid__2D27B809">
+          <End Role="PublishingCompany" Type="Self.PublishingCompany" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublishingCompany">
+              <PropertyRef Name="companyId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="pcid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SkyBrands_WebNCEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Books" EntityType="Self.Books" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="PublishingCompany" EntityType="Self.PublishingCompany" />
+          <AssociationSet Name="FK__Books__cid__2C3393D0" Association="Self.FK__Books__cid__2C3393D0">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__pcid__2D27B809" Association="Self.FK__Books__pcid__2D27B809">
+            <End Role="PublishingCompany" EntitySet="PublishingCompany" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <FunctionImport Name="psDeleteBook">
+            <Parameter Name="bookId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psGetAccounts" ReturnType="Collection(SkyBrands_WebNCModel.psGetAccounts_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psGetAdmin">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psGetTableBooks" ReturnType="Collection(SkyBrands_WebNCModel.psGetTableBooks_Result)">
+            <Parameter Name="bookId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psGetTableBooksByCid" ReturnType="Collection(SkyBrands_WebNCModel.psGetTableBooksByCid_Result)">
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psGetTableCategories" ReturnType="Collection(SkyBrands_WebNCModel.psGetTableCategories_Result)">
+            <Parameter Name="categoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psGetTop4BooksByCid" ReturnType="Collection(SkyBrands_WebNCModel.psGetTop4BooksByCid_Result)">
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psInsertAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psInsertBook">
+            <Parameter Name="bookId" Mode="In" Type="String" />
+            <Parameter Name="bookName" Mode="In" Type="String" />
+            <Parameter Name="bookImage" Mode="In" Type="String" />
+            <Parameter Name="author" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+            <Parameter Name="quantity" Mode="In" Type="Int32" />
+            <Parameter Name="publishingYear" Mode="In" Type="Int32" />
+            <Parameter Name="language" Mode="In" Type="String" />
+            <Parameter Name="numberPage" Mode="In" Type="Int32" />
+            <Parameter Name="form" Mode="In" Type="String" />
+            <Parameter Name="weight" Mode="In" Type="Int32" />
+            <Parameter Name="bookDescribe" Mode="In" Type="String" />
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+            <Parameter Name="pcid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psUpdateBook">
+            <Parameter Name="bookId" Mode="In" Type="String" />
+            <Parameter Name="bookName" Mode="In" Type="String" />
+            <Parameter Name="bookImage" Mode="In" Type="String" />
+            <Parameter Name="author" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+            <Parameter Name="quantity" Mode="In" Type="Int32" />
+            <Parameter Name="publishingYear" Mode="In" Type="Int32" />
+            <Parameter Name="language" Mode="In" Type="String" />
+            <Parameter Name="numberPage" Mode="In" Type="Int32" />
+            <Parameter Name="form" Mode="In" Type="String" />
+            <Parameter Name="weight" Mode="In" Type="Int32" />
+            <Parameter Name="bookDescribe" Mode="In" Type="String" />
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+            <Parameter Name="pcid" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="psGetAccounts_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="phoneNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="psGetTableBooks_Result">
+          <Property Type="String" Name="bookId" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="bookName" Nullable="true" />
+          <Property Type="String" Name="bookImage" Nullable="true" />
+          <Property Type="String" Name="author" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="price" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="Int32" Name="publishingYear" Nullable="true" />
+          <Property Type="String" Name="language" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="numberPage" Nullable="true" />
+          <Property Type="String" Name="form" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="weight" Nullable="true" />
+          <Property Type="String" Name="bookDescribe" Nullable="true" />
+          <Property Type="Int32" Name="cid" Nullable="true" />
+          <Property Type="Int32" Name="pcid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="psGetTableBooksByCid_Result">
+          <Property Type="String" Name="bookId" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="bookName" Nullable="true" />
+          <Property Type="String" Name="bookImage" Nullable="true" />
+          <Property Type="String" Name="author" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="price" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="Int32" Name="publishingYear" Nullable="true" />
+          <Property Type="String" Name="language" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="numberPage" Nullable="true" />
+          <Property Type="String" Name="form" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="weight" Nullable="true" />
+          <Property Type="String" Name="bookDescribe" Nullable="true" />
+          <Property Type="Int32" Name="cid" Nullable="true" />
+          <Property Type="Int32" Name="pcid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="psGetTableCategories_Result">
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="psGetTop4BooksByCid_Result">
+          <Property Type="String" Name="bookId" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="bookName" Nullable="true" />
+          <Property Type="String" Name="bookImage" Nullable="true" />
+          <Property Type="String" Name="author" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="companyName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="publishingYear" Nullable="true" />
+          <Property Type="Int32" Name="numberPage" Nullable="true" />
+          <Property Type="Int32" Name="cid" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SkyBrands_WebNCModelStoreContainer" CdmEntityContainer="SkyBrands_WebNCEntities3">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Books">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="bookId" ColumnName="bookId" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+                <ScalarProperty Name="form" ColumnName="form" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="pcid" ColumnName="pcid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublishingCompany">
+            <EntityTypeMapping TypeName="SkyBrands_WebNCModel.PublishingCompany">
+              <MappingFragment StoreEntitySet="PublishingCompany">
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="companyImage" ColumnName="companyImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="psDeleteBook" FunctionName="SkyBrands_WebNCModel.Store.psDeleteBook" />
+          <FunctionImportMapping FunctionImportName="psGetAccounts" FunctionName="SkyBrands_WebNCModel.Store.psGetAccounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetAccounts_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psGetAdmin" FunctionName="SkyBrands_WebNCModel.Store.psGetAdmin" />
+          <FunctionImportMapping FunctionImportName="psGetTableBooks" FunctionName="SkyBrands_WebNCModel.Store.psGetTableBooks">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableBooks_Result">
+                <ScalarProperty Name="bookId" ColumnName="bookId" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+                <ScalarProperty Name="form" ColumnName="form" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="pcid" ColumnName="pcid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psGetTableBooksByCid" FunctionName="SkyBrands_WebNCModel.Store.psGetTableBooksByCid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableBooksByCid_Result">
+                <ScalarProperty Name="bookId" ColumnName="bookId" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+                <ScalarProperty Name="form" ColumnName="form" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="pcid" ColumnName="pcid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psGetTableCategories" FunctionName="SkyBrands_WebNCModel.Store.psGetTableCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableCategories_Result">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psGetTop4BooksByCid" FunctionName="SkyBrands_WebNCModel.Store.psGetTop4BooksByCid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTop4BooksByCid_Result">
+                <ScalarProperty Name="bookId" ColumnName="bookId" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+                <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psInsertAccount" FunctionName="SkyBrands_WebNCModel.Store.psInsertAccount" />
+          <FunctionImportMapping FunctionImportName="psInsertBook" FunctionName="SkyBrands_WebNCModel.Store.psInsertBook" />
+          <FunctionImportMapping FunctionImportName="psUpdateBook" FunctionName="SkyBrands_WebNCModel.Store.psUpdateBook" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

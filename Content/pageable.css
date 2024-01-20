@@ -1,0 +1,14 @@
+﻿.block_paging {
+    text-align: center;
+    font-size: 14px;
+}
+.link_paging {
+    text-decoration: none;
+    color: black;
+    padding: 6px;
+}
+.link_paging:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #337ab7;
+}

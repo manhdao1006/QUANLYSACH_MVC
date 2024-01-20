@@ -1,0 +1,247 @@
+.shop-navbar{
+    min-height: 300px;
+}
+
+.shop_header > li {
+    list-style: none;
+    display: flex;
+}
+.shop_header > li.shop-list_header{
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid #818181;
+    box-shadow: 0px 0px 10px #818181;
+    margin-bottom: 20px;
+}
+
+.shop_header > li > div{
+    padding: 0px 10px;
+}
+
+
+.shop_header > li > .l-1,
+.shop_header > li > .l-2{
+    text-align: center;
+}
+
+
+
+.shop_header > li > div >input {
+    width: 20px;
+    height: 20px;
+}
+
+
+#shop-list_btt > li.shop-list_item{
+    height: 115px;
+    margin-bottom: 40px;
+    padding-top: 20px;
+    border-top: 2px solid rgb(123, 122, 122);
+}
+#shop-list_btt > li.shop-list_item > div {
+    line-height: 115px;
+    height: 115px;
+}
+
+#shop-list_btt > li > div.shop-list_bookinfo{
+    display: flex;
+}
+
+#shop-list_btt > li > div.shop-list_bookinfo > .name{
+    line-height: normal;
+}
+
+#shop-list_btt > li > div.shop-list_bookinfo > .image{
+    padding-right: 10px;
+}
+
+#shop-list_btt > li > div.shop-list_bookinfo > .image >img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#shop-list_btt > li.shop-list_item > div > button{
+    width: 80px;
+    line-height: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#shop-list_btt > li.shop-list_item > div > button:hover{
+    border: 2px solid red;
+    color: red;
+}
+
+#shop-list_btt > li > div.updatenum{
+    display: flex;
+}
+#shop-list_btt > li > div.updatenum > button{
+    width: 40px;
+    margin: 40px 10px;
+}
+
+.shop-list_footer > div > button{
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+}
+
+
+.shop-list_footer > div > button.buy{
+    width: 215px;
+    height: 40px;
+    line-height: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(73, 177, 242);
+}
+
+.shop-list_footer >div{
+    line-height: 40px;
+}
+
+.shop-list_footer > div > button.buy:hover{
+    color: red;
+    border: 2px solid red;
+    background-color: rgb(0, 0, 0);
+}
+
+.shop_link_step {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.shop_link_step a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.shop_link_step a:hover{
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.block-order{
+    display: flex;
+}
+
+.title-order {
+    color: #337ab7;
+    font-size: 20px;
+    font-weight: 600;
+}
+.list_order {
+    
+}
+.list_order > li {
+    display: flex;
+    list-style: none;
+    color: black;
+    font-size: 14px;
+    padding: 0px 14px;
+}
+.list_order > li > div:nth-child(1) {
+    width: 50%;
+}
+.list_order > li > div:nth-child(2) {
+}
+.list_order > li > div:nth-child(3) {
+    text-align: right;
+    width: 50%;
+}
+
+.form-fullname {
+    margin-bottom: 5px;
+}
+.form-block {
+    display: flex;
+}
+.form-block > .form-group{
+    width: 40%;
+}
+.form-block > .form-group:nth-child(2){
+    margin-left: 70px;
+}
+
+.lbl_fullname, .lbl_order {
+    font-size: 14px;
+    color: black;
+}
+.txt_fullname {
+    max-width: 1080px;
+    width: 90%;
+    height: 25px;
+    font-size: 14px;
+    color: black;
+}
+.txt_order {
+    max-width: 1080px;
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+    color: black;
+}
+.txt_note {
+    max-width: 1080px;
+    width: 90%;
+    height: 80px;
+    font-size: 14px;
+    color: black;
+}
+
+.block-order_left {
+    margin-bottom: 20px;
+}
+.note_please {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: gray;
+    font-style: italic;
+    margin-right: 10px;
+}
+
+.block-order_right {
+    border: solid 2px black;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.main-order {
+}
+
+.lbl-price_order {
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-block;
+}
+.price_order {
+    display: inline-block;
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.pay_option {
+    font-size: 14px;
+    color: black;
+}
+.note_order{
+    font-size: 14px;
+    color: gray;
+    font-weight: 300;
+}
+
+.content-bank{
+    font-size: 14px;
+    color: black;
+}
+.address-receive {
+
+}
+.address-receive > li {
+    list-style: none;
+}

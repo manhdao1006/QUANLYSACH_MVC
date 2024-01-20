@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clr{
+    clear: both;
+    margin-top: 10px;
+}
+.content{
+    z-index: -1;
+}
+.content_details{
+    z-index: -1;
+    background: url("../img/bg-product.webp") 100%;
+}
+.content_details-left{
+    width: 100%;
+    height: 100%;
+}
+.content_main-left{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: solid 1px gainsboro;
+}
+.content_main-left img{
+    width: 100%;
+}
+
+.content_details-right{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 3px #666;
+    margin-top: 10px;
+}
+.content_main-right{
+    margin: 0 auto;
+    width: 80%;
+}
+.bookname{
+    color: #00AEEF;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.author > a, .author > a:hover{
+    text-decoration: none;
+    color: red;
+}
+.infor_books{
+    display: flex;
+}
+.infor_books > div{
+    padding: 10px;
+}
+.infor_books > div.quality a, .infor_books > div.review a, .infor_books > div.sold a{
+    text-decoration: none;
+}
+div.quality a m, div.review a m, div.sold a m{
+    color: black;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 700;
+}
+div.quality a i{
+    color: yellow;
+}
+div.review a:hover m, div.sold a:hover m{
+    color: #175F9E;
+}
+.price{
+    padding: 20px;
+    color: red;
+    font-size: 30px;
+    font-family: Arial;
+    font-weight: 700;
+}
+.address, .quantity{
+    padding: 10px;
+    color: black;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 700;
+}
+.quantity button{
+    border: solid 1px gainsboro;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background-color: white;
+    text-align: center;
+}
+.quantity button a{
+    text-decoration: none;
+    color: black;
+}
+.quantity input{
+    font-size: 16px;
+    border: solid 1px gainsboro;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+}
+.block_cart{
+    padding: 20px;
+    display: inline-block;
+}
+.add_cart{
+    padding: 10px;
+    color: white;
+    border-color: white;
+    background-color: tomato;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.block_buy{
+    padding: 20px;
+    display: inline-block;
+}
+.buy{
+    padding: 10px;
+    color: tomato;
+    border-color: tomato;
+    background-color: white;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+
+
+.content_describe_top{
+    width: 100%;
+    height: 100%;
+}
+.content_main_top-left > .content_describe_main-left{
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+.content_describe_main-left > .bookname{
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+    color: #00AEEF;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.content_describe_main-left > table{
+    width: 100%;
+    height: 80%;
+    border-collapse: collapse;
+}
+.content_describe_main-left table th,
+.content_describe_main-left table td{
+    text-align: center;
+    border: solid 1px gainsboro;
+    padding: 16px 5px;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+
+.content_describe_bottom > .describe_title{
+    color: #00AEEF;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: Arial;
+    text-transform: uppercase;
+    margin: 15px 15px 0px;    
+}
+.content_describe_bottom > .describe_content{
+    font-family: Arial;
+    font-size: 14px;
+    color: black;
+    text-align: justify; /*gian deu chu*/
+    margin: 5px 15px 30px;
+}

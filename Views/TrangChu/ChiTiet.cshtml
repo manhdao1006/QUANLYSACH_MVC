@@ -1,0 +1,370 @@
+﻿@model QUANLYSACH_MVC.Books
+
+@{
+    ViewBag.Title = "ChiTiet";
+    string formattedAmount = string.Format("{0:#,###,##}", Model.price);
+}
+<html>
+<head runat="server">
+    <title>Skybooks Clone by manod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="~/Content/grid.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/skybooks.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_books.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_categories.css">
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.icon.png">
+    <!-- <link rel="stylesheet" href="/skybooks/css/responsive_home.css"> -->
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <![endif]-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--header-->
+    <div class="wrapper grid">
+        <div class="home-header grid">
+            <div class="home-header-top grid wide">
+                <div class="home-header-top-content">
+                    <div class="home-header-top-left">
+                        <div class=""><a href="#" class="fb-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="ins-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="youtube-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="home-header-top-right">
+                        <div class=""><a href="#" class="phone-icon"><i class="fa fa-phone" aria-hidden="true"> <span>02438438220</span></i></a></div>
+                        <div class=""><a href="#" class="mail-icon c-3"><i class="fa fa-envelope" aria-hidden="true"> <span>cskh_online@skybooks.com.vn</span></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="wrapper grid">
+        <div class="home-banner grid wide">
+            <div class="home-header-banner row">
+                <div class="home-header-banner-left l-4">
+                    <a href="~/TrangChu/SkyShop"><img class="logo" src="~/img/logo.png"></a>
+                </div>
+
+                <div class="home-header-banner-center l-4">
+                    <div class="home-header-banner-center-search">
+                        <button class="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <input type="text" class="search" placeholder="Tìm kiếm... ">
+                    </div>
+                </div>
+
+                @if (Session["username"] == null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/DangNhap"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="user_name">Đăng nhập</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangKy"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Đăng ký</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="~/TrangChu/DangNhap"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+                @if (Session["username"] != null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/ThongTin"><i class="fa fa-user" aria-hidden="true"></i> <span class="user_name">@Session["username"]</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangXuat"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="~/GioHang/DanhSach"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--navigation-->
+    <div class="wrapper grid">
+        <div class="home-navbar grid">
+            <div class="home-navbar-menu grid wide">
+                <ul class="row">
+                    <li><a class="homepage" href="~/TrangChu/SkyShop"><i class="fa fa-home"></i></a></li>
+                    <li><a href="~/TrangChu/GioiThieu">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức & Sự kiện</a></li>
+                    <li>
+                        <div class="home-navbar-menu-list">
+                            <a href="#" class="items">Tủ sách</a>
+                            <div class="list-items_type">
+                                <ul class="list">
+                                    @foreach (var item in new SkyBrands_WebNCEntities3().Categories)
+                                    {
+                                        <li>
+                                            <a class="list-items-list" href="SanPham?cid=@Html.DisplayFor(modelItem => item.categoryId)&page=1">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                @Html.DisplayFor(modelItem => item.categoryName)
+                                            </a>
+                                        </li>
+                                    }
+                                    <li><a class="list-items-list" href="#"><i class="fa" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#">Tác giả</a></li>
+                    <li><a href="#">Trích dẫn</a></li>
+                    <li><a href="#">Thông báo - Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper grid">
+        <div class="home-main-block_container grid wide">
+            <div class="img-container"></div>
+            <a href="#" title="CHÚNG TA RỒI SẼ ỔN" class="title-container">Chúng ta rồi sẽ ổn thôi</a>
+        </div>
+    </div>
+    <!-- end home-main-block_container -->
+
+    <div class="clr"></div>
+    <div class="content grid">
+        <div class="content_details grid wide row">
+            <div class="content_details-left no-gutters l-5 m-12 c-12">
+                <div class="content_main-left">
+                    <img class="book_IMG" src="~/img/books/@Html.DisplayFor(model => model.bookImage)" alt="@Html.DisplayFor(model => model.bookName)" title="@Html.DisplayFor(model => model.bookName)" />
+                </div>
+            </div>
+
+            <div class="content_details-right no-gutters l-7 m-12 c-12">
+                <div class="content_main-right">
+
+                    <div class="bookname">@Html.DisplayFor(model => model.bookName)</div>
+                    <div class="author">Tác giả: <a href="#">@Html.DisplayFor(model => model.author)</a></div>
+                    <div class="infor_books">
+                        <div class="quality">
+                            <a href="#">
+                                <m>5</m>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </a>
+                        </div>
+
+                        <div class="review">
+                            <a href="#">
+                                <m>5</m>
+                                <m>Đánh Giá</m>
+                            </a>
+                        </div>
+
+                        <div class="sold">
+                            <a href="#">
+                                <m>5</m>
+                                <m>Đã Bán</m>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="price"><td>@formattedAmount</td></div>
+
+                    <div class="address">Giao đến:</div>
+
+                    <div class="quantity">
+                        Số lượng:
+                        <button onclick="lownumbuy(this)"><a>-</a></button>
+                        <input class="num" type="text" name="num" value="1" aria-valuenow="" role="spinbutton" />
+                        <button onclick="upnumbuy(this)"><abbr>+</a></button>
+                        <i style="font-size: 14px; color: gray"><span class="maxnum">@Html.DisplayFor(model => model.quantity)</span> sản phẩm còn trong kho</i>
+                    </div>
+
+                    <a class="block_cart">
+                        <input class="add_cart" type="button" onclick="additemtoshop()" value="Thêm vào giỏ hàng" />
+                    </a>
+
+                    <a class="block_buy">
+                        <input class="buy" type="button" onclick="additemtoshopanddbuy()" value="Mua ngay" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_describe_top grid wide row">
+            <div class="content_main_top-left no-gutters l-5 m-12 c-12">
+                <div class="content_describe_main-left">
+                    <div class="bookname">Chi tiết sản phẩm</div>
+                    <table>
+                        <tr>
+                            <th>Tác giả</th>
+                            <td>@Html.DisplayFor(model => model.author)</td>
+                        </tr>
+                        <tr>
+                            <th>NXB</th>
+                            <td>@Html.DisplayFor(model => model.PublishingCompany.companyName)</td>
+                        </tr>
+                        <tr>
+                            <th>Năm XB</th>
+                            <td>@Html.DisplayFor(model => model.publishingYear)</td>
+                        </tr>
+                        <tr>
+                            <th>Ngôn ngữ</th>
+                            <td>@Html.DisplayFor(model => model.language)</td>
+                        </tr>
+                        <tr>
+                            <th>Trọng lượng (gr)</th>
+                            <td>@Html.DisplayFor(model => model.weight)</td>
+                        </tr>
+                        <tr>
+                            <th>Số trang</th>
+                            <td>@Html.DisplayFor(model => model.numberPage)</td>
+                        </tr>
+                        <tr>
+                            <th>Hình thức</th>
+                            <td>@Html.DisplayFor(model => model.form)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="content_main_top-right no-gutters l-7 m-12 c-12">
+
+            </div>
+
+            <hr>
+
+        </div>
+
+        <div class="content_describe_bottom grid wide">
+            <div class="describe_title">Mô Tả Sản Phẩm</div>
+            <p class="describe_content">@Html.DisplayFor(model => model.bookDescribe)</p>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="wrapper grid">
+        <div class="home-footer grid">
+            <div class="home-footer-content grid wide">
+                <div class="block-content_main no-gutters row">
+                    <div class="block-content_main_left no-gutters l-4">
+                        <img src="~/img/logo_footer.png" alt="SkyBooks" />
+                        <p>
+                            Skybooks - thương hiệu sách dành cho những người viết trẻ, đam mê văn chương, tôn trọng, gìn giữ, sáng tạo Tiếng Việt. Dành cho một thế hệ độc giả trẻ, đam mê khám phá ngôn ngữ, say mê đến với thế giới của những quyển sách. Và là một thế hệ những người làm sách trẻ, đam mê mang đến những giá trị tinh thần cho bạn đọc, lan toả cảm xúc và kết nối tâm hồn.
+                        </p>
+                    </div>
+
+                    <div class="block-content_main_middle no-gutters l-4">
+                        <div class="our_contact">Liên hệ với chúng tôi</div>
+                        <div class="address_contact">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Địa chỉ: Số 83 Lý Nam Đế, Phường Cửa Đông, Quận Hoàn Kiếm, Hà Nội</span>
+                        </div>
+                        <div class="phone_contact">
+                            <i class="fa fa-phone"></i>
+                            <span>Hotline kinh doanh: 02438438220</span>
+                        </div>
+                    </div>
+
+                    <div class="block-content_main_right no-gutters l-4">
+                        <div class="signin_sale">Đăng ký nhận khuyến mãi</div>
+                        <div>Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end home -->
+    <script>
+        function additemtoshop() {
+            var account_name = document.querySelector(".user_name").textContent
+
+            if (account_name == "Đăng nhập") {
+                alert("xin vui lòng đăng nhập")
+            } else {
+                var item = {
+                    name: document.querySelector('.bookname').textContent,
+                    price: document.querySelector('.price').textContent,
+                    num: document.querySelector('.num').value,
+                    image: document.querySelector('.book_IMG').src
+                }
+
+                if (localStorage.getItem(account_name) != null) {
+                    var listitem = JSON.parse(localStorage.getItem(account_name))
+                    listitem.push(item)
+                    localStorage.setItem(account_name, JSON.stringify(listitem))
+                    alert("Thêm sản phẩm thành công")
+                } else {
+                    var shopuser = []
+                    shopuser.push(item)
+                    localStorage.setItem(account_name, JSON.stringify(shopuser))
+                    alert("Thêm sản phẩm thành công")
+                }
+            }
+        }
+
+        function additemtoshopanddbuy() {
+            var account_name = document.querySelector(".user_name").textContent
+
+            if (account_name == "Đăng nhập") {
+                alert("xin vui lòng đăng nhập")
+            } else {
+                var item = {
+                    name: document.querySelector('.bookname').textContent,
+                    price: document.querySelector('.price').textContent,
+                    num: document.querySelector('.num').value,
+                    image: document.querySelector('.book_IMG').src
+                }
+
+                if (localStorage.getItem(account_name) != null) {
+                    var listitem = JSON.parse(localStorage.getItem(account_name))
+                    listitem.push(item)
+                    localStorage.setItem(account_name, JSON.stringify(listitem))
+                    window.location.href = "/GioHang/DanhSach";
+                } else {
+                    var shopuser = []
+                    shopuser.push(item)
+                    localStorage.setItem(account_name, JSON.stringify(shopuser))
+                    window.location.href = "/GioHang/DanhSach";
+                }
+            }
+        }
+
+        function upnumbuy(node) {
+            let mainnode = node.parentNode
+
+            if (mainnode.querySelector('.num').value >= parseInt(mainnode.querySelector('.maxnum').textContent)) {
+                alert("đã đạt số lượng tối da")
+            } else {
+                mainnode.querySelector('.num').value++
+            }
+        }
+
+        function lownumbuy(node) {
+            let mainnode = node.parentNode
+            if (mainnode.querySelector('.num').value > 0) {
+                mainnode.querySelector('.num').value--
+            }
+        }
+    </script>
+</body>
+</html>

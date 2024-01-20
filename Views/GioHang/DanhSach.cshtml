@@ -1,0 +1,343 @@
+﻿
+@{
+    ViewBag.Title = "DanhSach";
+}
+
+<html>
+<head runat="server">
+    <title>Skybooks Clone by manod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="~/Content/grid.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/skybooks.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/shop.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_books.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_categories.css">
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.icon.png">
+
+    <!-- <link rel="stylesheet" href="/skybooks/css/responsive_home.css"> -->
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <![endif]-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--header-->
+    <div class="wrapper grid">
+        <div class="home-header grid">
+            <div class="home-header-top grid wide">
+                <div class="home-header-top-content">
+                    <div class="home-header-top-left">
+                        <div class=""><a href="#" class="fb-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="ins-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="youtube-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="home-header-top-right">
+                        <div class=""><a href="#" class="phone-icon"><i class="fa fa-phone" aria-hidden="true"> <span>02438438220</span></i></a></div>
+                        <div class=""><a href="#" class="mail-icon c-3"><i class="fa fa-envelope" aria-hidden="true"> <span>cskh_online@skybooks.com.vn</span></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="wrapper grid">
+        <div class="home-banner grid wide">
+            <div class="home-header-banner row">
+                <div class="home-header-banner-left l-4">
+                    <a href="~/TrangChu/SkyShop"><img class="logo" src="~/img/logo.png"></a>
+                </div>
+
+                <div class="home-header-banner-center l-4">
+                    <div class="home-header-banner-center-search">
+                        <button class="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <input type="text" class="search" placeholder="Tìm kiếm... ">
+                    </div>
+                </div>
+
+                @if (Session["username"] == null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/DangNhap"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="user_name">Đăng nhập</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangKy"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Đăng ký</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+                @if (Session["username"] != null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/ThongTin"><i class="fa fa-user" aria-hidden="true"></i> <span class="user_name">@Session["username"]</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangXuat"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--navigation-->
+    <div class="wrapper grid">
+        <div class="home-navbar grid">
+            <div class="home-navbar-menu grid wide">
+                <ul class="row">
+                    <li><a class="homepage" href="~/TrangChu/SkyShop"><i class="fa fa-home"></i></a></li>
+                    <li><a href="~/TrangChu/GioiThieu">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức & Sự kiện</a></li>
+                    <li>
+                        <div class="home-navbar-menu-list">
+                            <a href="#" class="items">Tủ sách</a>
+                            <div class="list-items_type">
+                                <ul class="list">
+                                    @foreach (var item in new SkyBrands_WebNCEntities3().Categories)
+                                    {
+                                        <li>
+                                            <a class="list-items-list" href="~/TrangChu/SanPham?cid=@Html.DisplayFor(modelItem => item.categoryId)&page=1">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                @Html.DisplayFor(modelItem => item.categoryName)
+                                            </a>
+                                        </li>
+                                    }
+                                    <li><a class="list-items-list" href="#"><i class="fa" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#">Tác giả</a></li>
+                    <li><a href="#">Trích dẫn</a></li>
+                    <li><a href="#">Thông báo - Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="wrapper grid">
+        <div class="shop-navbar grid wide">
+            <div class="shop_link_step">
+                <a style="color: #337ab7" href="~/GioHang/DanhSach">Giỏ hàng</a> >
+                <a style="color: black">Chi tiết đơn hàng</a> >
+                <a style="color: black">Hoàn tất</a>
+            </div>
+
+            <ul class="shop_header">
+                <li class="shop-list_header row">
+                    <div class="l-1">
+                        <input type="checkbox" onchange="changeallchecked(this)">
+                    </div>
+                    <div class="l-4">
+                        Sản Phẩm
+                    </div>
+                    <div class="l-2">Đơn giá</div>
+                    <div class="l-2"> Số lượng</div>
+                    <div class="l-2">Số tiền</div>
+                    <div class="l-1">Thao tác</div>
+                </li>
+            </ul>
+
+            <!-- hiển thị danh sách thêm vào giỏ hàng -->
+            <ul id="shop-list_btt" class="shop_header"></ul>
+
+            <div class="shop-list_footer grid wide row">
+                <div class="l-2">
+                    <input id="checked__all" type="checkbox" onchange="changeallchecked(this)"> Chọn Tất cả
+                </div>
+                <div class="l-4">
+                    <button onclick="deleteAllitem()">Xóa</button>
+                </div>
+                <div class="l-1">
+                    Tổng tiền:
+                </div>
+                <div class="l-3 totalprice">0</div>
+                <div class="l-2">
+                    <button class="buy" onclick="paymentHandle()">TIẾN HÀNH THANH TOÁN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="wrapper grid">
+        <div class="home-footer grid">
+            <div class="home-footer-content grid wide">
+                <div class="block-content_main no-gutters row">
+                    <div class="block-content_main_left no-gutters l-4">
+                        <img src="~/img/logo_footer.png" alt="SkyBooks" />
+                        <p>
+                            Skybooks - thương hiệu sách dành cho những người viết trẻ, đam mê văn chương, tôn trọng, gìn giữ, sáng tạo Tiếng Việt. Dành cho một thế hệ độc giả trẻ, đam mê khám phá ngôn ngữ, say mê đến với thế giới của những quyển sách. Và là một thế hệ những người làm sách trẻ, đam mê mang đến những giá trị tinh thần cho bạn đọc, lan toả cảm xúc và kết nối tâm hồn.
+                        </p>
+                    </div>
+
+                    <div class="block-content_main_middle no-gutters l-4">
+                        <div class="our_contact">Liên hệ với chúng tôi</div>
+                        <div class="address_contact">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Địa chỉ: Số 83 Lý Nam Đế, Phường Cửa Đông, Quận Hoàn Kiếm, Hà Nội</span>
+                        </div>
+                        <div class="phone_contact">
+                            <i class="fa fa-phone"></i>
+                            <span>Hotline kinh doanh: 02438438220</span>
+                        </div>
+                    </div>
+
+                    <div class="block-content_main_right no-gutters l-4">
+                        <div class="signin_sale">Đăng ký nhận khuyến mãi</div>
+                        <div>Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteitem(index) {
+            var listitemdelete = JSON.parse(localStorage.getItem(account_name))
+            listitemdelete.splice(index, 1);
+            localStorage.setItem(account_name, JSON.stringify(listitemdelete))
+            location.reload()
+        }
+
+        function deleteAllitem() {
+            var listitem = document.querySelectorAll('.shop-list_item')
+            var totalprice = 0
+            if (document.getElementById('checked__all').checked) {
+                localStorage.setItem(account_name, JSON.stringify([]))
+                location.reload()
+            } else {
+                alert("vui lòng chọn tất cả")
+            }
+        }
+
+        function changetotalprice() {
+            var listitem = document.querySelectorAll('.shop-list_item')
+            var totalprice = 0
+            for (let i = 0; i < listitem.length; i++) {
+
+                if (listitem[i].querySelector('.checkitem').checked) {
+                    totalprice += listitem[i].querySelector('.num').textContent * listitem[i].querySelector('.price').textContent
+                }
+            }
+            document.querySelector('.totalprice').innerHTML = totalprice
+        }
+
+        function changeallchecked(node) {
+            var listitem = document.querySelectorAll('.shop-list_item')
+            if (node.checked) {
+                for (let i = 0; i < listitem.length; i++) {
+                    listitem[i].querySelector('.checkitem').checked = true
+                }
+                changetotalprice()
+            } else {
+                for (let i = 0; i < listitem.length; i++) {
+                    listitem[i].querySelector('.checkitem').checked = false
+                }
+                changetotalprice()
+            }
+        }
+
+        var account_name = document.querySelector(".user_name").textContent
+
+        var content = ""
+        var listitem = JSON.parse(localStorage.getItem(account_name))
+
+        if (listitem != null) {
+            for (let i = 0; i < listitem.length; i++) {
+                if (listitem[i] != null) {
+                    content += `<li class="shop-list_item row">
+            <div class="l-1">
+                <input class="checkitem" type="checkbox" onchange="changetotalprice()">
+             </div>
+             <div class="l-4 shop-list_bookinfo">
+                <div class="image l-3">
+                    <img class="book_IMG" src="${listitem[i].image}" alt="">
+                </div>
+                <div class="name bookname l-9"> ${listitem[i].name}</div>
+             </div>
+             <div class="l-2 price">${listitem[i].price}</div>
+             <div class="l-2 updatenum">
+                <button onclick="lowvalue(this,${i})">-</button>
+                <span class="num">${listitem[i].num}</span>
+                <button onclick="upvalue(this,${i})">+</button>
+             </div>
+             <div class="l-2">${listitem[i].price * listitem[i].num}</div>
+             <div class="l-1">
+                <button onclick="deleteitem(${i})")>Xóa</button>
+            </div>
+        </li>   `
+                }
+            }
+            document.querySelector("#shop-list_btt").innerHTML = content
+        }
+
+        function upvalue(node, index) {
+            if (listitem != null) {
+                var mainnode = node.parentNode.parentNode
+                mainnode.querySelector(".num").textContent++
+                listitem[index].num++;
+                changetotalprice();
+                localStorage.setItem(account_name, JSON.stringify(listitem));
+                location.reload();
+            }
+        }
+
+        function lowvalue(node, index) {
+            if (listitem != null) {
+                var mainnode = node.parentNode.parentNode
+                if (mainnode.querySelector(".num").textContent > 1) {
+                    mainnode.querySelector(".num").textContent--
+                    listitem[index].num--;
+                    changetotalprice();
+                    localStorage.setItem(account_name, JSON.stringify(listitem));
+                    location.reload();
+                } else {
+                    deleteitem(index)
+                }
+            }
+        }
+
+        function paymentHandle() {
+            var items = document.querySelectorAll('.shop-list_item')
+            if (listitem.length != 0) {
+                for (let i = 0; i < items.length; i++) {
+                    if (listitem.length != 0 && items[i].querySelector('.checkitem').checked == true) {
+                        window.location.href = "/GioHang/ChiTiet";
+                    } else {
+                        window.alert("Vui lòng chọn sản phẩm muốn thanh toán")
+                    }
+                }
+            } else {
+                window.alert("Bạn không thể tiến hành thanh toán khi giỏ hàng trống!");
+            }            
+        }
+    </script>
+</body>
+</html>
+

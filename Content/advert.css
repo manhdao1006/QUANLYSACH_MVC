@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.ad_main_body{
+    background-color: #BFEFFF;
+}
+.wrapper{
+    margin: 0px auto;
+}
+.ad_main_navigation{
+    padding: 10px 0px;
+}
+.ad_main_navigation > ul{
+    margin: 0 auto;
+}
+.ad_main_navigation > ul > li{
+    list-style-type: none;   
+}
+.ad_main_navigation > ul > li > a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+}
+.ad_main_navigation > ul > li >a:hover{
+    color: #00BFFF;  
+}
+
+.ad_main_banner{
+    text-align: center;
+}
+.ad_main_banner > img{
+    width: 100%;
+}
+
+.ad_header_introduce{
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+}
+
+.introduce_items{
+    padding: 15px;
+}
+.introduce_items > .introduce_title{
+    text-align: center;
+    color: #00BFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+.introduce_items > .introduce_content{
+    text-align: justify;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.home-footer{
+    background: url(/img/bg_footer.webp) no-repeat;
+    margin: 0 auto;
+    background-size: cover;
+}
+.home-footer-content .block-content_main{
+    padding: 60px 25px;
+    /*text-align: justify;*/
+}
+.block-content_main_left > img{
+    width: 90%;
+}
+.block-content_main_left > p{
+    margin: 0px;
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+    text-align: justify;
+    width: 90%;
+    padding-top: 15px;
+}
+.block-content_main_middle > .our_contact,
+.block-content_main_right > .signin_sale{
+    color: #38a8ea;
+    text-transform: uppercase;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 65px;
+    letter-spacing: 1px;
+    width: 90%;
+}
+.block-content_main_middle .address_contact,
+.block-content_main_middle .phone_contact{
+    color: white;
+    font-family: Segoe UI;
+    font-size: 16px;;
+    padding-top: 15px;
+    display: flex;
+    width: 90%;
+}
+.block-content_main_middle .address_contact .fa,
+.block-content_main_middle .phone_contact .fa{
+    padding: 5px 10px 0px 0px;
+    color: #38a8ea;
+}
+.block-content_main_right > div:last-child{
+    color: white;
+    font-family: Segoe UI;
+    font-size: 16px;;
+    padding-top: 15px;
+    width: 90%;
+}

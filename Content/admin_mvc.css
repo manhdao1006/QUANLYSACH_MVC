@@ -1,0 +1,68 @@
+﻿.title_management {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+}
+
+.link_comeback {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 18px;
+    font-weight: 600;
+}
+.link_comeback:hover {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn_primary {
+    color: #00AEEF;
+    padding: 8px;
+    border: solid 5px #337ab7;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.btn_primary:hover {
+    color: white;
+    padding: 8px;
+    border: solid 5px #337ab7;
+    background-color: #337ab7;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/*index.cshtml*/
+.link_add {
+    font-size: 20px;
+    font-weight: 600;
+}
+.link_add > a {
+    text-decoration: none;
+    color: black;
+}
+.link_add > a:hover {
+    text-decoration: none;
+    color: #00AEEF;
+}
+
+.link_edit-delete-detail {
+    text-decoration: none;
+    color: #337ab7;
+}
+.link_edit-delete-detail:hover {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.table {
+    font-size: 12px;
+}
+
+/*create.cshtml*/
+.form_create {
+
+}

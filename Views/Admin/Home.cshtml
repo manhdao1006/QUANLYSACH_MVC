@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Skybooks Clone by manod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="~/Content/admin.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_mvc.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/skybooks.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/grid.css" />
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.icon.png" />
+    <!-- <link rel="stylesheet" href="/skybooks/css/responsive_home.css"> -->
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <![endif]-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <div class="wrapper grid">
+            <div class="admin_header grid">
+                <div class="admin_top grid wide row">
+                    <div class="admin_top_left l-6 m-6 c-6">
+                        <div class="logo"><img src="~/img/logo.png" alt="Skybooks Logo" /></div>
+                    </div>
+
+                    <div class="admin_top_right l-6 m-6 c-6">
+                        <div class="infor_account">
+                            <a class="account" href="~/TrangChu/ThongTin"><i class="fa fa-user" aria-hidden="true"></i> <span>@Session["admin"]</span></a>
+                        </div>
+                        <div class="logout_account">
+                            <a class="logout" href="~/TrangChu/DangXuat"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end-header-top-->
+
+            <div class="admin_center grid">
+                <div class="admin_middle grid wide row">
+                    <div class="admin_middle_left no-gutters l-2">
+                        <div>ADMIN</div>
+                        <div class="home_page">
+                            <a href="~/Admin/Home"><i class="fa fa-home" aria-hidden="true"></i> <span>Home</span></a>
+                        </div>
+                        <div class="block_management">
+                            <ul class="block_management_list">
+                                <li>
+                                    <div class="block_management_list_items">
+                                        <a href="~/QuanLyTaiKhoan/Index">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span>Quản lý Tài khoản</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block_management_list_items">
+                                        <a href="~/QuanLyTheLoai/Index">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span>Quản lý Thể loại</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block_management_list_items" id="management_books">
+                                        <a href="~/QuanLySach/Index">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span>Quản lý Sách</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="admin_middle_right no-gutters l-10">
+                        <div class="title_management">Chào mừng, @Session["admin"] đã trở lại</div>
+                    </div>
+                </div>
+                <!--end-middle-->
+
+                <div class="admin_middle_list grid wide">
+
+                </div>
+
+            </div>
+
+            <div></div>
+            <!--end-bottom-->
+        </div>
+
+    <!--footer-->
+    <div class="wrapper grid">
+        <div class="home-footer grid">
+            <div class="home-footer-content grid wide">
+                <div class="block-content_main no-gutters row">
+                    <div class="block-content_main_left no-gutters l-4">
+                        <img src="~/img/logo_footer.png" alt="SkyBooks" />
+                        <p>
+                            Skybooks - thương hiệu sách dành cho những người viết trẻ, đam mê văn chương, tôn trọng, gìn giữ, sáng tạo Tiếng Việt. Dành cho một thế hệ độc giả trẻ, đam mê khám phá ngôn ngữ, say mê đến với thế giới của những quyển sách. Và là một thế hệ những người làm sách trẻ, đam mê mang đến những giá trị tinh thần cho bạn đọc, lan toả cảm xúc và kết nối tâm hồn.
+                        </p>
+                    </div>
+
+                    <div class="block-content_main_middle no-gutters l-4">
+                        <div class="our_contact">Liên hệ với chúng tôi</div>
+                        <div class="address_contact">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Địa chỉ: Số 83 Lý Nam Đế, Phường Cửa Đông, Quận Hoàn Kiếm, Hà Nội</span>
+                        </div>
+                        <div class="phone_contact">
+                            <i class="fa fa-phone"></i>
+                            <span>Hotline kinh doanh: 02438438220</span>
+                        </div>
+                    </div>
+
+                    <div class="block-content_main_right no-gutters l-4">
+                        <div class="signin_sale">Đăng ký nhận khuyến mãi</div>
+                        <div>Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

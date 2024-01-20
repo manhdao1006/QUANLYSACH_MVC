@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SkyBrands_WebNCModelStoreContainer" CdmEntityContainer="SkyBrands_WebNCEntities3">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Books">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="bookId" ColumnName="bookId" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+          <ScalarProperty Name="form" ColumnName="form" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SkyBrands_WebNCModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublishingCompany">
+      <EntityTypeMapping TypeName="SkyBrands_WebNCModel.PublishingCompany">
+        <MappingFragment StoreEntitySet="PublishingCompany">
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="companyImage" ColumnName="companyImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="psDeleteBook" FunctionName="SkyBrands_WebNCModel.Store.psDeleteBook" />
+    <FunctionImportMapping FunctionImportName="psGetAccounts" FunctionName="SkyBrands_WebNCModel.Store.psGetAccounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetAccounts_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psGetAdmin" FunctionName="SkyBrands_WebNCModel.Store.psGetAdmin" />
+    <FunctionImportMapping FunctionImportName="psGetTableBooks" FunctionName="SkyBrands_WebNCModel.Store.psGetTableBooks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableBooks_Result">
+          <ScalarProperty Name="bookId" ColumnName="bookId" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+          <ScalarProperty Name="form" ColumnName="form" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psGetTableBooksByCid" FunctionName="SkyBrands_WebNCModel.Store.psGetTableBooksByCid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableBooksByCid_Result">
+          <ScalarProperty Name="bookId" ColumnName="bookId" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+          <ScalarProperty Name="form" ColumnName="form" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="bookDescribe" ColumnName="bookDescribe" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psGetTableCategories" FunctionName="SkyBrands_WebNCModel.Store.psGetTableCategories">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTableCategories_Result">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psGetTop4BooksByCid" FunctionName="SkyBrands_WebNCModel.Store.psGetTop4BooksByCid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SkyBrands_WebNCModel.psGetTop4BooksByCid_Result">
+          <ScalarProperty Name="bookId" ColumnName="bookId" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="bookImage" ColumnName="bookImage" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="publishingYear" ColumnName="publishingYear" />
+          <ScalarProperty Name="numberPage" ColumnName="numberPage" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psInsertAccount" FunctionName="SkyBrands_WebNCModel.Store.psInsertAccount" />
+    <FunctionImportMapping FunctionImportName="psInsertBook" FunctionName="SkyBrands_WebNCModel.Store.psInsertBook" />
+    <FunctionImportMapping FunctionImportName="psUpdateBook" FunctionName="SkyBrands_WebNCModel.Store.psUpdateBook" />
+  </EntityContainerMapping>
+</Mapping>

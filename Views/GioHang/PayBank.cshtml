@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "PayBank";
+}
+
+<html>
+<head runat="server">
+    <title>Skybooks Clone by manod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="~/Content/grid.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/skybooks.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/shop.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_mvc.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_books.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_details_of_categories.css">
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.icon.png">
+
+    <!-- <link rel="stylesheet" href="/skybooks/css/responsive_home.css"> -->
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <![endif]-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--header-->
+    <div class="wrapper grid">
+        <div class="home-header grid">
+            <div class="home-header-top grid wide">
+                <div class="home-header-top-content">
+                    <div class="home-header-top-left">
+                        <div class=""><a href="#" class="fb-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="ins-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="youtube-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="home-header-top-right">
+                        <div class=""><a href="#" class="phone-icon"><i class="fa fa-phone" aria-hidden="true"> <span>02438438220</span></i></a></div>
+                        <div class=""><a href="#" class="mail-icon c-3"><i class="fa fa-envelope" aria-hidden="true"> <span>cskh_online@skybooks.com.vn</span></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="wrapper grid">
+        <div class="home-banner grid wide">
+            <div class="home-header-banner row">
+                <div class="home-header-banner-left l-4">
+                    <a href="~/TrangChu/SkyShop"><img class="logo" src="~/img/logo.png"></a>
+                </div>
+
+                <div class="home-header-banner-center l-4">
+                    <div class="home-header-banner-center-search">
+                        <button class="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <input type="text" class="search" placeholder="Tìm kiếm... ">
+                    </div>
+                </div>
+
+                @if (Session["username"] == null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/DangNhap"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="user_name">Đăng nhập</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangKy"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Đăng ký</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+                @if (Session["username"] != null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/ThongTin"><i class="fa fa-user" aria-hidden="true"></i> <span class="user_name">@Session["username"]</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangXuat"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--navigation-->
+    <div class="wrapper grid">
+        <div class="home-navbar grid">
+            <div class="home-navbar-menu grid wide">
+                <ul class="row">
+                    <li><a class="homepage" href="~/TrangChu/SkyShop"><i class="fa fa-home"></i></a></li>
+                    <li><a href="~/TrangChu/GioiThieu">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức & Sự kiện</a></li>
+                    <li>
+                        <div class="home-navbar-menu-list">
+                            <a href="#" class="items">Tủ sách</a>
+                            <div class="list-items_type">
+                                <ul class="list">
+                                    @foreach (var item in new SkyBrands_WebNCEntities3().Categories)
+                                    {
+                                        <li>
+                                            <a class="list-items-list" href="~/TrangChu/SanPham?cid=@Html.DisplayFor(modelItem => item.categoryId)&page=1">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                @Html.DisplayFor(modelItem => item.categoryName)
+                                            </a>
+                                        </li>
+                                    }
+                                    <li><a class="list-items-list" href="#"><i class="fa" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#">Tác giả</a></li>
+                    <li><a href="#">Trích dẫn</a></li>
+                    <li><a href="#">Thông báo - Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="wrapper grid">
+        <div class="shop-navbar grid wide">
+            <div class="shop_link_step">
+                <a href="~/GioHang/DanhSach">Giỏ hàng</a> >
+                <a href="~/GioHang/ChiTiet">Chi tiết đơn hàng</a> >
+                <a style="color: #337ab7" href="~/GioHang/PayZalo">Hoàn tất</a>
+            </div>
+
+            <form>
+                <div class="block-order">
+                    <div class="block-order_left no-gutters l-4 m-12 c-12">
+                        <div class="block-infor_order">
+                            <div class="note_please">Vui lòng ghi "Mã đơn hàng" của bạn trong phần nội dung chuyển khoản để shop xác nhận đơn hàng.</div>
+                            <div class="title-order">THÔNG TIN CHUYỂN KHOẢN</div>
+                            <div class="content-bank">
+                                <p>Ngân hàng: MB Bank (Ngân hàng Quân đội Việt Nam)</p>
+                                <p>Tên tài khoản: DAO DUC MANH</p>
+                                <p>STK: 0779569834</p>
+                                <p>Hoặc</p>
+                                <img width="240px" height="240px" src="~/img/paybank.jpg" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-order_right no-gutters l-8 m-12 c-12">
+                        <div class="main-order">
+                            <div class="title-order">ĐỊA CHỈ NHẬN HÀNG</div>
+                            <ul class="address-receive"></ul>
+                            <label class="id_user" hidden>@Session["id"]</label>
+
+                            <div class="title-order">THÔNG TIN ĐƠN HÀNG</div>
+
+                            <ul class="list_order"></ul>
+
+                            <div class="lbl-price_order">Tổng:</div>
+                            <div class="price_order"></div><br />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="wrapper grid">
+        <div class="home-footer grid">
+            <div class="home-footer-content grid wide">
+                <div class="block-content_main no-gutters row">
+                    <div class="block-content_main_left no-gutters l-4">
+                        <img src="~/img/logo_footer.png" alt="SkyBooks" />
+                        <p>
+                            Skybooks - thương hiệu sách dành cho những người viết trẻ, đam mê văn chương, tôn trọng, gìn giữ, sáng tạo Tiếng Việt. Dành cho một thế hệ độc giả trẻ, đam mê khám phá ngôn ngữ, say mê đến với thế giới của những quyển sách. Và là một thế hệ những người làm sách trẻ, đam mê mang đến những giá trị tinh thần cho bạn đọc, lan toả cảm xúc và kết nối tâm hồn.
+                        </p>
+                    </div>
+
+                    <div class="block-content_main_middle no-gutters l-4">
+                        <div class="our_contact">Liên hệ với chúng tôi</div>
+                        <div class="address_contact">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Địa chỉ: Số 83 Lý Nam Đế, Phường Cửa Đông, Quận Hoàn Kiếm, Hà Nội</span>
+                        </div>
+                        <div class="phone_contact">
+                            <i class="fa fa-phone"></i>
+                            <span>Hotline kinh doanh: 02438438220</span>
+                        </div>
+                    </div>
+
+                    <div class="block-content_main_right no-gutters l-4">
+                        <div class="signin_sale">Đăng ký nhận khuyến mãi</div>
+                        <div>Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var account_name = document.querySelector(".user_name").textContent
+
+        var content = ""
+        var totalprice = 0
+        var listitem = JSON.parse(localStorage.getItem(account_name))
+
+        if (listitem != null) {
+            for (let i = 0; i < listitem.length; i++) {
+                if (listitem[i] != null) {
+                    content += `<li class="">
+                                    <div>${listitem[i].name}</div>
+                                    <div>x${listitem[i].num}</div>
+                                    <div>${listitem[i].price * listitem[i].num}.000 vnđ</div>
+                                </li>`
+                    totalprice += parseFloat(listitem[i].price) * parseFloat(listitem[i].num);
+                }
+            }
+            document.querySelector(".list_order").innerHTML = content
+            document.querySelector(".price_order").innerHTML = totalprice + ".000 vnđ"
+
+        }
+
+        var id_user = document.querySelector(".id_user").textContent
+
+        var content = ""
+        var listitem = JSON.parse(localStorage.getItem(id_user))
+
+        if (listitem != null) {
+            for (let i = 0; i < listitem.length; i++) {
+                if (listitem[i] != null) {
+                    content += `<li class="" style="color:black; font-size:14px; font-weight:700;">Mã đơn hàng: #<span style="background-color:yellow;">${listitem[i].id_order}</span></li>
+                                <li class="">${listitem[i].fullname}</li>
+                                <li class="">${listitem[i].phonenumber}</li>
+                                <li class="">${listitem[i].email}</li>
+                                <li class="">${listitem[i].tinh}</li>
+                                <li class="">${listitem[i].huyen}</li>
+                                <li class="">${listitem[i].xa}</li>
+                                <li class="">${listitem[i].address}</li>
+                                <li class="">${listitem[i].note}</li>`
+                }
+            }
+            document.querySelector(".address-receive").innerHTML = content
+        }
+    </script>
+</body>
+</html>
+

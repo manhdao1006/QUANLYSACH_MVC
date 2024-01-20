@@ -1,0 +1,145 @@
+﻿@model QUANLYSACH_MVC.Accounts
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Skybooks Clone by manod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="~/Content/admin.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_mvc.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/skybooks.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/grid.css" />
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.icon.png" />
+    <!-- <link rel="stylesheet" href="/skybooks/css/responsive_home.css"> -->
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <![endif]-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <div class="wrapper grid">
+        <div class="admin_header grid">
+            <div class="admin_top grid wide row">
+                <div class="admin_top_left l-6 m-6 c-6">
+                    <div class="logo"><img src="~/img/logo.png" alt="Skybooks Logo" /></div>
+                </div>
+
+                <div class="admin_top_right l-6 m-6 c-6">
+                    <div class="infor_account">
+                        <a class="account" href="~/TrangChu/ThongTin"><i class="fa fa-user" aria-hidden="true"></i> <span>@Session["admin"]</span></a>
+                    </div>
+                    <div class="logout_account">
+                        <a class="logout" href="~/TrangChu/DangXuat"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end-header-top-->
+
+        <div class="admin_center grid">
+            <div class="admin_middle grid wide row">
+                <div class="admin_middle_left no-gutters l-2">
+                    <div>ADMIN</div>
+                    <div class="home_page">
+                        <a href="~/Admin/Home"><i class="fa fa-home" aria-hidden="true"></i> <span>Home</span></a>
+                    </div>
+                    <div class="block_management">
+                        <ul class="block_management_list">
+                            <li>
+                                <div class="block_management_list_items">
+                                    <a href="~/QuanLyTaiKhoan/Index">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Quản lý Tài khoản</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="block_management_list_items">
+                                    <a href="~/QuanLyTheLoai/Index">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        <span>Quản lý Thể loại</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="block_management_list_items" id="management_books">
+                                    <a href="~/QuanLySach/Index">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        <span>Quản lý Sách</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="admin_middle_right no-gutters l-10">
+                    <div class="title_management">XÓA TÀI KHOẢN</div>
+                    <h3>Bạn có chắc chắn muốn xóa không?</h3>
+                    <div>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Tên đăng nhập:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.username)
+                            </dd>
+
+                            <dt>
+                                Mật khẩu:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.password)
+                            </dd>
+
+                            <dt>
+                                Email:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.email)
+                            </dd>
+
+                            <dt>
+                                Số điện thoại:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.phoneNumber)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Xóa" class="btn_primary" />
+                                @Html.ActionLink(" | Quay lại danh sách", "Index", null, new { @class = "link_comeback" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!--end-middle-->
+        </div>
+    </div>
+</body>
+</html>

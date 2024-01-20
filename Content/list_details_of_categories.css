@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clr{
+    clear: both;
+    margin-top: 10px;
+}
+.title_category{
+    color: black;
+    /*font-family: Arial;*/
+    font-size: 18px;
+    /*display: flex;*/
+    /*text-align: center;*/
+    margin-bottom: 20px;
+}
+.list-items{
+    display: flex;
+    text-align: center;
+}
+.list-items > ul{
+    margin: 0;
+}
+.list-items > ul > li{
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 25px;
+}
+.list-items > ul > li > a{
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+.list-items > ul > li > a > .infor_category_book > .anh{
+    box-sizing: border-box;
+    border: solid 1px gainsboro;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+/*phong to anh*/
+/*-webkit-; -o-; -ms- la cac tien to phu hop voi tung trang web*/
+.list-items > ul > li > a > .infor_category_book > .anh > img{
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+.list-items > ul > li > a > .infor_category_book > .anh > img:hover{
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+}
+.list-items > ul > li > a > .infor_category_book > .category_bookName{
+    width: 75%;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+.list-items > ul > li > a > .infor_category_book > .category_price{
+    width: 70%;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    color: tomato;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.list-items > ul > li > a > .infor_category_book > .category_bookName:hover{
+    color: #00AEEF;
+}
+.list-items > ul > li > a > .infor_category_book > .category_price:hover{
+    color: #00AEEF;
+}
+.list-items > ul > li > a.active{
+    visibility: visible;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+.pagination a {
+    color: black;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 600;
+    float: left;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.pagination a.active {
+    background-color: #00AEEF;
+    color: white;
+    font-weight: 100;
+}
+.pagination a:hover:not(.active) {
+    background-color: #00AEEF;
+    color: white;
+}
